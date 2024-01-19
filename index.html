@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather App</title>
+        <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/all.min.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-main">
+            <div class="container justify-content-between">
+                <a class="navbar-brand" href="#">
+                    <div class="logo d-flex align-items-center mt-1">
+                        <figure class="d-flex align-items-center me-2">
+                            <img src="imgs/logo@2x.png" alt="logo" />
+                        </figure>
+                        <div class="logo-p">
+                            <h1 class="mb-2 fs-6 fw-bold">Weather</h1>
+                            <p>Daily Weather Guide</p>
+                        </div>
+                    </div>
+                </a>
+                <button
+                    class="navbar-toggler rounded-pill"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavId"
+                    aria-controls="collapsibleNavId"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <i class="fa fa-bars fs-6"></i>
+                </button>
+
+                <div
+                    class="collapse collapse navbar-collapse"
+                    id="collapsibleNavId"
+                >
+                    <ul class="navbar-nav align-items-center ms-auto">
+                        <li class="nav-item">
+                            <a
+                                class="active btn rounded-pill text-white"
+                                href="#"
+                                aria-current="page"
+                                >Home</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn rounded-pill text-white" href="#"
+                                >News</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn rounded-pill text-white" href="#"
+                                >Live Cameras</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn rounded-pill text-white" href="#"
+                                >Photo</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn rounded-pill text-white" href="#"
+                                >Contact</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <header id="hero" class="position-relative">
+            <div class="container">
+                <div class="mb-3 position-relative">
+                    <input
+                        type="text"
+                        class="form-control w-100 rounded-pill p-3 text-white bg-main"
+                        id="locationInput"
+                        placeholder="Find your location"
+                    />
+                    <button
+                        type="button"
+                        class="btn btn-primary rounded-pill"
+                        id="findLocation"
+                    >
+                        Find
+                    </button>
+                </div>
+            </div>
+        </header>
+        <section id="weatherSection" class="bg-main p-lg-5 p-1">
+            <div class="weather-table">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="today-color rounded bg-today">
+                                <div
+                                    class="today-header bg-today-header rounded"
+                                >
+                                    <p class="mb-0" id="theDay"></p>
+                                    <p class="mb-0" id="theDayInMonth"></p>
+                                </div>
+                                <div class="today-content">
+                                    <p id="locationName"></p>
+                                    <div class="degree">
+                                        <p
+                                            class="num text-white fw-bold mb-0"
+                                            id="tempCelsius"
+                                        ></p>
+                                        <figure
+                                            id="tempConditionImage"
+                                        ></figure>
+                                    </div>
+                                    <div
+                                        class="custom text-primary"
+                                        id="tempConditionText"
+                                    ></div>
+                                    <span
+                                        class="me-2"
+                                        id="rainPercentage"
+                                    ></span>
+                                    <span class="me-2" id="windKph"></span>
+                                    <span id="windDir"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="weather today-color rounded bg-weather">
+                                <div class="weather-header bg-weather-header">
+                                    <p
+                                        class="day mb-0 text-center"
+                                        id="dayOne"
+                                    ></p>
+                                </div>
+                                <div class="weather-content text-center">
+                                    <figure id="oneConditionImage"></figure>
+                                    <div class="degree">
+                                        <p
+                                            class="fs-5 text-white fw-bold mb-0"
+                                            id="oneMaxTemp"
+                                        ></p>
+                                    </div>
+                                    <div id="oneMinTemp" class="pt-2"></div>
+                                    <div
+                                        class="custom text-primary"
+                                        id="oneConditionText"
+                                    ></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div
+                                class="weather today-color rounded bg-today bg-today"
+                            >
+                                <div
+                                    class="weather-header bg-today-header rounded"
+                                >
+                                    <p
+                                        class="day mb-0 text-center"
+                                        id="dayTwo"
+                                    ></p>
+                                </div>
+                                <div class="weather-content text-center">
+                                    <figure id="twoConditionImage"></figure>
+                                    <div class="degree">
+                                        <p
+                                            class="fs-5 text-white fw-bold mb-0"
+                                            id="twoMaxTemp"
+                                        ></p>
+                                    </div>
+                                    <div id="twoMinTemp" class="pt-2"></div>
+                                    <div
+                                        class="custom text-primary"
+                                        id="twoConditionText"
+                                    ></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="bg-today py-5 position-relative bg-weather">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="mb-3 position-relative">
+                            <input
+                                type="text"
+                                class="form-control w-100 rounded-pill p-3 text-white bg-main"
+                                placeholder="Enter your email to subscribe"
+                            />
+                            <button
+                                type="button"
+                                class="btn btn-primary rounded-pill text-white px-3 subscribe-btn"
+                            >
+                                Subscribe
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-2">
+                        <div class="social mt-lg-3 mb-sm-5 mb-0">
+                            <a
+                                href="https://
+
+www.linkedin.com/in/abdalrhman-gamal/"
+                                target="_blank"
+                            >
+                                <i class="fa fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a
+                                href="https://github.com/abdalrhman80"
+                                target="_blank"
+                            >
+                                <i class="fa fa-brands fa-github"></i>
+                            </a>
+                            <a href="https://www.facebook.com" target="_blank">
+                                <i class="fa fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.twitter.com" target="_blank">
+                                <i class="fa fa-brands fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-gray mt-2">
+                    &copy; Copyright 2014 Company name. Designed by Themezy. All
+                    rights reserved
+                </p>
+            </div>
+        </footer>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
